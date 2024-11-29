@@ -89,6 +89,22 @@ input:focus{
     color: white;
 }
 
+#baixar{
+    display: flex;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #30ac57;
+    color: white;
+    display: none;
+    margin: 20px auto;
+}
+
+#baixar:active{
+    background-color: tomato;
+    color: white;
+}
 
 .display{
     display: flex;

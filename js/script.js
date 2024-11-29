@@ -7,15 +7,19 @@ const qntViagens = document.querySelector('#viagens')
 const qntLitros = document.querySelector('#litros')
 const qntHectares = document.querySelector('#hectares')
 const display = document.querySelector('.display')
-
+const baixar = document.querySelector('#baixar')
+const formulario = document.querySelector('#formulario')
+const title = document.querySelector('#title')
+let temosDados = false;
 //adicionar um evento no botao resultado
 botao.addEventListener('click',(evt)=>{
+    esconderForm();
     if (!qntViagens.value || isNaN(qntViagens.value) || qntViagens.value <= 0) { alert("Por favor, insira um número válido para a quantidade de viagens."); return; } 
 
     if (!qntLitros.value || isNaN(qntLitros.value) || qntLitros.value <= 0) { alert("Por favor, insira um número válido para a quantidade de litros."); return; }
 
     if (!qntHectares.value || isNaN(qntHectares.value) || qntHectares.value <= 0) { alert("Por favor, insira um número válido para a quantidade de hectares."); return;}
-
+    baixar.style.display = 'block'
     display.innerHTML = ''
     evt.preventDefault()
     let mediaHec = qntHectares.value / qntViagens.value
@@ -41,8 +45,26 @@ botao.addEventListener('click',(evt)=>{
     qntLitros.value = ''
     qntHectares.value = ''
     qntViagens.focus()
+    temosDados = true;
 })
 
+baixar.addEventListener('click', ()=>{
+    if(temosDados){
+        html2canvas(document.querySelector('.display')).then(function(canvas){
+        var link = document.createElement('a');
+        link.download = 'médiaAplicada.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        })
+    }
+})
+
+
+function esconderForm(){
+    formulario.style.display = 'none';
+    title.innerHTML = 'Clique abaixo para obter a imagem:'
+
+}
 
 
 function formatarNumero(valor) {
