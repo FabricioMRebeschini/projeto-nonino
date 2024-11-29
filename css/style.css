@@ -143,6 +143,11 @@ input:focus{
         margin: 30px auto;
         padding: 10px 2%;
     }
+
+    #title{
+        padding-top: 20px;
+        font-size: 15px;
+    }
     
 
     label{

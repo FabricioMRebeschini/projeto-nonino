@@ -11,24 +11,32 @@ const baixar = document.querySelector('#baixar')
 const formulario = document.querySelector('#formulario')
 const title = document.querySelector('#title')
 let temosDados = false;
+
+
 //adicionar um evento no botao resultado
 botao.addEventListener('click',(evt)=>{
     esconderForm();
+    let litros = qntLitros.value
+    let numeroFormatado = formatarNumero(litros);
+    let hectares = qntHectares.value
+    hectares = hectares.replace(/,/g, '.')
+    console.log(hectares)
+    let litrosPorViagem = litros / qntViagens.value
+    let litrosPorViagemFormatado = new Intl.NumberFormat('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(litrosPorViagem);
+
     if (!qntViagens.value || isNaN(qntViagens.value) || qntViagens.value <= 0) { alert("Por favor, insira um número válido para a quantidade de viagens."); return; } 
 
     if (!qntLitros.value || isNaN(qntLitros.value) || qntLitros.value <= 0) { alert("Por favor, insira um número válido para a quantidade de litros."); return; }
 
-    if (!qntHectares.value || isNaN(qntHectares.value) || qntHectares.value <= 0) { alert("Por favor, insira um número válido para a quantidade de hectares."); return;}
+    if (!hectares || isNaN(hectares) || hectares <= 0) { alert("Por favor, insira um número válido para a quantidade de hectares."); return;}
+
+
     baixar.style.display = 'block'
     display.innerHTML = ''
     evt.preventDefault()
-    let mediaHec = qntHectares.value / qntViagens.value
+    let mediaHec = hectares / qntViagens.value
     
-    let litros = qntLitros.value
-    let numeroFormatado = formatarNumero(litros);
-    let hectares = qntHectares.value
-    let litrosPorViagem = litros / qntViagens.value
-    let litrosPorViagemFormatado = new Intl.NumberFormat('pt-BR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(litrosPorViagem);
+    
     
     console.log(numeroFormatado)
     display.innerHTML += `
