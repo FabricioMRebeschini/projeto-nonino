@@ -6,8 +6,8 @@
 }
 
 body{
-    width: 90%;
-    max-width: 450px;
+    width: 500px;
+    max-width: 500px;
     margin: 20px auto;
     background-color: rgb(125, 120, 120);
 }
@@ -18,9 +18,9 @@ main{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    max-width: 800px;
+    max-width: 500px;
     padding: 0 2%;
-    margin: 0 auto;
+    margin: 2px auto;
     background-color: rgba(27, 155, 167, 0.83);
     border-radius: 10px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.674);
@@ -119,7 +119,6 @@ input:focus{
     flex-direction: column;
     width: 100%;
     margin: 0 auto;
-    margin-top: 10px;
     max-width: 500px;
     padding: 0 2%;
 }
@@ -143,6 +142,36 @@ input:focus{
     text-align: center;
     padding: 20px;
     overflow: hidden;
+}
+
+footer{
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-height: 100px;
+    padding: 0 2%;
+    overflow: hidden;
+}
+
+footer p {
+    width: 70%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-left: -20px;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.741);
+}
+
+footer div{
+    width: 30%;
+    height: 100px;
+}
+
+footer div > img#logo-lesma{
+    width: 82px;
+    height: 205px;
 }
 
 
@@ -202,7 +231,6 @@ input:focus{
         display: flex;
         flex-direction: column;
         width: 100%;
-        margin-top: 30px;
         padding: 10px 3%;
         background-color: rgb(125, 120, 120);
     }
